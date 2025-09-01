@@ -3,6 +3,7 @@ package com.baloch.restapi.service;
 import com.baloch.restapi.model.Blog;
 import com.baloch.restapi.repository.BlogRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,10 +23,11 @@ public class BlogService {
     public Optional<Blog> getBlogById(Integer blogId){
         return blogRepo.findById(blogId);
     }
-    
-    public Blog createBlog(Blog blogData){
-        blogRepo.save(blogData);
-        return blogData;
+
+
+    public Blog createBlog(@RequestBody Blog blog){
+        blogRepo.save(blog);
+        return blog;
     }
 
     public void deleteBlogById(Integer blogId){

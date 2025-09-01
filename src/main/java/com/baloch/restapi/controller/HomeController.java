@@ -11,4 +11,9 @@ public class HomeController {
         return "Hello World from Spring Boot!";
     }
 
+    @RequestMapping("/public/hello")
+    public String Hello(){
+        return "Hello World from Spring Boot Public URL!";
+    }
+
 }
