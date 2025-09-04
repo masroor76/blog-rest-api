@@ -14,14 +14,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
          httpSecurity
+
                  .authorizeHttpRequests(authorize ->authorize
                                  .requestMatchers("/public/**").permitAll()
                                  .anyRequest().authenticated()
                          )
-                 .formLogin(Customizer.withDefaults())
                  .httpBasic(Customizer.withDefaults());
          return httpSecurity.build();
     }
 
-    
+
 }
